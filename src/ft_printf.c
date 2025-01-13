@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:33:47 by jowagner          #+#    #+#             */
-/*   Updated: 2025/01/12 17:09:56 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/01/13 20:31:32 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 /**
  * @brief A custom implementation of the printf() function.

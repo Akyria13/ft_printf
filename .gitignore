@@ -1,0 +1,6 @@
+*.a
+a.out
+*.o
+obj
+.cache
+.vscode

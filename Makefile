@@ -1,9 +1,23 @@
 ########################################################################################################################
+#                                                      COLOURS                                                         #
+########################################################################################################################
+
+COLOUR_GREEN =		\033[0;32m
+BOLD_GREEN = 		\e[1;32m
+COLOUR_RED =		\033[0;31m
+BOLD_RED =			\e[1;31m
+RESET =				\033[0m
+
+########################################################################################################################
 #                                                      VARIABLES                                                       #
 ########################################################################################################################\
 
 NAME = 				libftprintf.a
-HEAD = 				ft_printf .h
+HEAD = 				../include/ft_printf.h
+
+LIB_PATH =			./include
+LIBFT = 			./libft/libft.a
+LIBFTPRINTF	= 		${LIB_PATH}/ft_printf.h
 
 AR = 				ar rcs
 RM = 				rm -f
@@ -11,10 +25,12 @@ RM = 				rm -f
 CC = 				cc
 CFLAGS = 			-Wall -Wextra -Werror
 
+SRC_PATH =			./src
 SRC = \
-					ft_printf.c \
+					$(SRC_PATH)/ft_printf.c \
 
 OBJS = 				$(SRC:%.c=$(OBJ_DIR)%.o)
+
 
 ########################################################################################################################
 #                                                      DIRECTORY                                                       #
@@ -26,15 +42,17 @@ OBJS = 				$(SRC:%.c=$(OBJ_DIR)%.o)
 #                                                       COMMANDS                                                       #
 ########################################################################################################################
 
-$(NAME) : 			$(OBJS) Makefile
-					$(AR) $@ $^
+$(NAME) : 			$(OBJS) $(LIBFT) Makefile
+					@echo "=> $(BOLD_GREEN)Creating $(COLOUR_GREEN)$(NAME)$(RESET)"
+					@$(AR) $@ $^
 
 $(OBJ_DIR)%.o:		%.c $(HEAD)
 # | $(OBJ_DIR)
 					$(CC) $(CFLAGS) -I. -o $@ -c $<
 
 $(OBJ_DIR) :
-					mkdir -p
+					@echo "=> $(BOLD_GREEN)Creating $(COLOUR_GREEN)folder 'obj'$(RESET)"
+					@mkdir -p
 # $(OBJ_DIR)
 
 ########################################################################################################################
@@ -43,14 +61,14 @@ $(OBJ_DIR) :
 
 all : 				$(NAME)
 
-clean :
+clean :				-C libft
+					@echo "=> $(BOLD_RED)Deleting $(COLOUR_RED)folder 'obj'$(RESET)"
 					@$(RM) -rf
 # $(OBJ_DIR)
-					@echo "Deleting 'obj'"
 
-fclean : 			clean
+fclean : 			clean -C libft
+					@echo "=> $(BOLD_RED)Deleting $(COLOUR_RED)$(NAME)$(RESET)"
 					@$(RM) $(NAME)
-					@echo "Deleting libftprintf.a"
 
 re : 				fclean all
 
