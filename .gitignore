@@ -1,6 +1,9 @@
-*.a
+printfTester/
+.gitignore
+.vscode
+.cache
+main.c
 a.out
+*.a
 *.o
 obj
-.cache
-.vscode

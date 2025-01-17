@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:33:47 by jowagner          #+#    #+#             */
-/*   Updated: 2025/01/16 19:29:03 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/01/17 19:45:33 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	ft_check_args(va_list args, char c)
 {
 	if (args == NULL)
 		return (-1);
+	// else if (c == '%')
+	// 	write(1, '%', 1);
 	else if (c == 'c')
 		ft_putchar_fd(va_arg(args, int), 1);
 	return (0);

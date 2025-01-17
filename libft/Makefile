@@ -1,12 +1,3 @@
-########################################################################################################################
-#                                                      COLOURS                                                         #
-########################################################################################################################
-
-COLOUR_GREEN =		\033[0;32m
-BOLD_GREEN = 		\e[1;32m
-COLOUR_RED =		\033[0;31m
-BOLD_RED =			\e[1;31m
-RESET =				\033[0m
 
 ########################################################################################################################
 #                                                      VARIABLES                                                       #
@@ -82,14 +73,16 @@ OBJ_DIR = obj/
 ########################################################################################################################
 
 $(NAME) : 			$(OBJS) Makefile
-					@echo "=> $(BOLD_GREEN)Creating $(COLOUR_GREEN)$(NAME)$(RESET)"
+					@printf "%-50b%b" "\n$(YELLOW)[$(NAME)] :$(RESET)" "\n"
+					@printf "%-50b%b" "=> $(BOLD_GREEN)Created$(RESET)" "$(BOLD_GREEN)[✓]$(RESET)\n"
 					@$(AR) $@ $^
 
 $(OBJ_DIR)%.o:		%.c $(HEAD) | $(OBJ_DIR)
 					$(CC) $(CFLAGS) -I. -o $@ -c $<
 
 $(OBJ_DIR) :
-					@echo "=> $(BOLD_GREEN)Creating $(COLOUR_GREEN)folder 'obj'$(RESET)"
+					@printf "%-50b%b" "$(YELLOW)[libft/$(OBJ_DIR)] :$(RESET)" "\n"
+					@printf "%-50b%b" "=> $(BOLD_GREEN)Created$(RESET)" "$(BOLD_GREEN)[✓]$(RESET)\n"
 					@mkdir -p $(OBJ_DIR)
 
 ########################################################################################################################
@@ -99,16 +92,33 @@ $(OBJ_DIR) :
 all : 				$(NAME)
 
 bonus: 				$(OBJS) $(OBJS_BONUS)
-					@echo "=> $(BOLD_GREEN)Creating $(COLOUR_GREEN)$(NAME) with bonus$(RESET)"
+					@echo "=> $(BOLD_GREEN)Creating $(REEN)$(NAME) with bonus$(RESET)"
 					@$(AR) $(NAME) $^
 clean :
-					@echo "=> $(BOLD_RED)Deleting $(COLOUR_RED)folder 'obj'$(RESET)"
+#					@echo "=> $(BOLD_RED)Deleting $(COLOUR_RED)folder 'obj'$(RESET)"
 					@$(RM) -rf $(OBJ_DIR)
 
 fclean : 			clean
-					@echo "=> $(BOLD_RED)Deleting $(COLOUR_RED)$(NAME)$(RESET)"
+					@printf "%-50b%b" "=> $(BOLD_RED)Clean$(RESET)" "$(BOLD_GREEN)[✓]$(RESET)\n"
 					@$(RM) $(NAME)
 
 re : 				fclean all
 
 .PHONY : 			all bonus clean fclean re
+
+YELLOW			:=		\033[1;93m
+GREEN 			:=		\033[0;32m
+
+########################################################################################################################
+#                                                      DISPLAY                                                         #
+########################################################################################################################
+
+MAGENTA			:=		\033[0;95m
+YELLOW			:=		\033[1;93m
+GREEN 			:=		\033[0;32m
+RED 			:=		\033[0;31m
+
+BOLD_GREEN		:= 		\e[1;32m
+BOLD_RED 		:=		\e[1;31m
+
+RESET 			:=		\033[0m
