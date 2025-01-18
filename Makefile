@@ -11,6 +11,8 @@ CC				:= 		cc
 CFLAGS			:= 		-Wall -Wextra -Werror
 
 SRC				:=		ft_printf.c \
+						ft_printint.c \
+						ft_printptr.c \
 
 ########################################################################################################################
 #                                                      DIRECTORY                                                       #
@@ -61,29 +63,24 @@ re : 					.print_header fclean all $(LIBFT) $(NAME)
 							$(call BUILD)
 							$(call SEPARATOR)
 
-.PHONY : 				all bonus clean fclean re
-
 ########################################################################################################################
 #                                                       COMMANDS                                                       #
 ########################################################################################################################
 
-
 $(NAME) 		: 		$(OBJ_DIR) $(OBJS) $(LIBFT_DIR) Makefile
-						@printf "%-50b%b" "\n$(YELLOW)[$(NAME)] :$(RESET)" "\n"
-						@printf "%-50b%b" "=> $(BOLD_GREEN)Created$(RESET)" "$(BOLD_GREEN)[✓]$(RESET)\n"
-						@$(AR) -o $(NAME) $(OBJS)
-						$(call SEPARATOR)
+							@printf "%-50b%b" "\n$(YELLOW)[$(NAME)] :$(RESET)" "\n"
+							@printf "%-50b%b" "=> $(BOLD_GREEN)Created$(RESET)" "$(BOLD_GREEN)[✓]$(RESET)\n"
+							@$(AR) -o $(NAME) $(OBJS)
+							$(call SEPARATOR)
 
 $(OBJ_DIR)		:
-						@printf "%-50b%b" "\n$(YELLOW)[ft_printf/$(OBJ_DIR)] :$(RESET)" "\n"
-						@printf "%-50b%b" "=> $(BOLD_GREEN)Created$(RESET)" "$(BOLD_GREEN)[✓]$(RESET)\n"
-						@mkdir -p $(OBJ_DIR)
+							@printf "%-50b%b" "\n$(YELLOW)[ft_printf/$(OBJ_DIR)] :$(RESET)" "\n"
+							@printf "%-50b%b" "=> $(BOLD_GREEN)Created$(RESET)" "$(BOLD_GREEN)[✓]$(RESET)\n"
+							@mkdir -p $(OBJ_DIR)
 
 
 $(OBJS) 		:		$(OBJ_DIR)%.o:$(SRC_PATH)%.c $(HEAD)
-						@$(CC) $(CFLAGS) -I$(INC_PATH) -I$(LIBFT_DIR)$(INC_PATH) -c $< -o $@
-
-
+							@$(CC) $(CFLAGS) -I$(INC_PATH) -I$(LIBFT_DIR)$(INC_PATH) -c $< -o $@
 
 ########################################################################################################################
 #                                                      DISPLAY                                                         #
@@ -96,27 +93,27 @@ BLUE			:=		\033[0;94m
 RED 			:=		\033[0;31m
 
 BOLD_GREEN		:= 		\e[1;32m
+BOLD_WHITE		:=		\e[1;37m
+BOLD_CYAN 		:= 		\e[1;36m
 BOLD_RED 		:=		\e[1;31m
-test =	\e[1;37m
-test1 = \e[1;36m
 
 RESET 			:=		\033[0m
 
 define	TITLE
 						@echo "$(MAGENTA)---------------------------------------------------$(RESET)";
-						@echo "$(BOLD_GREEN)   __ _                   _       _    __ "
-						@echo "$(BOLD_GREEN)  / _| |_      _ __  _ __(_)_ __ | |_ / _|"
-						@echo "$(BOLD_GREEN) | |_| __|    | '_ \| '__| | '_ \| __| |_ "
-						@echo "$(BOLD_GREEN) |  _| |_     | |_) | |  | | | | | |_|  _|"
-						@echo "$(BOLD_GREEN) |_|  \__|____| .__/|_|  |_|_| |_|\__|_|  "
-						@echo "$(BOLD_GREEN)        |_____|_|                         "
+						@echo "$(BOLD_GREEN)       __ _                   _       _    __ "
+						@echo "$(BOLD_GREEN)      / _| |_      _ __  _ __(_)_ __ | |_ / _|"
+						@echo "$(BOLD_GREEN)     | |_| __|    | '_ \| '__| | '_ \| __| |_ "
+						@echo "$(BOLD_GREEN)     |  _| |_     | |_) | |  | | | | | |_|  _|"
+						@echo "$(BOLD_GREEN)     |_|  \__|____| .__/|_|  |_|_| |_|\__|_|  "
+						@echo "$(BOLD_GREEN)            |_____|_|                         "
 endef
 
 define	BUILD
-						@printf "%-40b%b" "$(test1)AUTHOR :$(RESET)" "$(test)$(AUTHOR)$(RESET)\n";
-						@printf "%-40b%b" "$(test1)NAME :$(RESET)" "$(test)$(NAME)$(RESET)\n";
-						@printf "%-40b%b" "$(test1)CC :$(RESET)" "$(test)$(CC)$(RESET)\n";
-						@printf "%-40b%b" "$(test1)FLAGS :$(RESET)" "$(test)$(CFLAGS)$(RESET)\n";
+						@printf "%-40b%b" "$(BOLD_CYAN)AUTHOR :$(RESET)" "$(BOLD_WHITE)$(AUTHOR)$(RESET)\n";
+						@printf "%-40b%b" "$(BOLD_CYAN)NAME :$(RESET)" "$(BOLD_WHITE)$(NAME)$(RESET)\n";
+						@printf "%-40b%b" "$(BOLD_CYAN)CC :$(RESET)" "$(BOLD_WHITE)$(CC)$(RESET)\n";
+						@printf "%-40b%b" "$(BOLD_CYAN)FLAGS :$(RESET)" "$(BOLD_WHITE)$(CFLAGS)$(RESET)\n";
 endef
 
 define	SEPARATOR
@@ -124,3 +121,5 @@ define	SEPARATOR
 						@echo "$(MAGENTA)---------------------------------------------------$(RESET)";
 						@printf "\n"
 endef
+
+.PHONY : 				all bonus clean fclean re
