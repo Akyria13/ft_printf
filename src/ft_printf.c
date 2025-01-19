@@ -6,7 +6,7 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:33:47 by jowagner          #+#    #+#             */
-/*   Updated: 2025/01/18 18:39:28 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/01/19 21:30:42 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@ static int	ft_check_args(va_list args, char c)
 {
 	if (args == NULL)
 		return (-1);
-	else if (c == 'c')
-		ft_putchar_fd(va_arg(args, int), 1);
-	else if (c == 's')
-		ft_putstr_fd(va_arg(args, char *), 1);
-	else if (c == 'p')
-		ft_printptr(va_arg(args, unsigned long));
 	else if (c == '%')
-		write(1, "%", 1);
+		return (ft_putchar('%'));
+	else if (c == 'c')
+		return (ft_putchar(va_arg(args, int)));
+	else if (c == 's')
+		return (ft_putstr(va_arg(args, char *)));
+	else if (c == 'p')
+		return (ft_print_ptr(va_arg(args, unsigned long)));
+	else if (c == 'u')
+		return (ft_putnbr_unsigned(va_arg(args, unsigned int)));
 	else if (c == 'i' || c == 'd')
-		ft_putnbr_fd(va_arg(args, int), 1);
+		return (ft_print_itoa(va_arg(args, int)));
 	else if (c == 'x' || c == 'X')
-		ft_putnbr_base(va_arg(args, int), c);
+		return (ft_putnbr_base(va_arg(args, int), c));
 	return (0);
 }
 
@@ -59,7 +61,7 @@ int	ft_printf(const char *format, ...)
 		c = *(format + 1);
 		if (*format == '%' && *(format + 1))
 		{
-			ft_check_args(args, c);
+			count += ft_check_args(args, c);
 			format++;
 		}
 		else

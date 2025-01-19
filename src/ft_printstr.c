@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 15:46:52 by jowagner          #+#    #+#             */
-/*   Updated: 2025/01/19 19:35:48 by jowagner         ###   ########.fr       */
+/*   Created: 2025/01/19 19:02:22 by jowagner          #+#    #+#             */
+/*   Updated: 2025/01/19 20:34:14 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../include/ft_printf.h"
 
-/**
- * @brief Writes a character to a file descriptor.
- *
- * @param c The character to be written.
- * @param fd The file descriptor to write to (1 for standard output,
- * 2 for standard error, etc.).
- */
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar(char c)
 {
-	write(fd, &c, 1);
+	return (write(1, &c, 1));
+}
+
+int	ft_putstr(char *str)
+{
+	int	count;
+
+	count = 0;
+	if (!str)
+	{
+		count += write(1, "(null)", 6);
+		return (count);
+	}
+	while (*str)
+		count += write(1, str++, 1);
+	return (count);
 }

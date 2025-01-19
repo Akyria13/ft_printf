@@ -13,6 +13,7 @@ CFLAGS			:= 		-Wall -Wextra -Werror
 SRC				:=		ft_printf.c \
 						ft_printint.c \
 						ft_printptr.c \
+						ft_printstr.c \
 
 ########################################################################################################################
 #                                                      DIRECTORY                                                       #
@@ -105,8 +106,8 @@ define	TITLE
 						@echo "$(BOLD_GREEN)      / _| |_      _ __  _ __(_)_ __ | |_ / _|"
 						@echo "$(BOLD_GREEN)     | |_| __|    | '_ \| '__| | '_ \| __| |_ "
 						@echo "$(BOLD_GREEN)     |  _| |_     | |_) | |  | | | | | |_|  _|"
-						@echo "$(BOLD_GREEN)     |_|  \__|____| .__/|_|  |_|_| |_|\__|_|  "
-						@echo "$(BOLD_GREEN)            |_____|_|                         "
+						@echo "$(BOLD_GREEN)     |_|  \__|$(BOLD_WHITE)____$(BOLD_GREEN)| .__/|_|  |_|_| |_|\__|_|  "
+						@echo "$(BOLD_GREEN)            $(BOLD_WHITE)|_____$(BOLD_GREEN)||_|                         "
 endef
 
 define	BUILD
