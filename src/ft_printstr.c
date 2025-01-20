@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 19:02:22 by jowagner          #+#    #+#             */
-/*   Updated: 2025/01/19 20:34:14 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:33:29 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

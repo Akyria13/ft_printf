@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:33:47 by jowagner          #+#    #+#             */
-/*   Updated: 2025/01/19 21:30:42 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:33:44 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 static int	ft_check_args(va_list args, char c)
 {

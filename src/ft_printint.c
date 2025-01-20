@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:00:58 by jowagner          #+#    #+#             */
-/*   Updated: 2025/01/19 21:30:00 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/01/20 18:58:31 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 static int	ft_numlen(int n)
 {
@@ -85,7 +85,7 @@ int	ft_putnbr_unsigned(unsigned int n)
 	char	c;
 
 	count = 0;
-	if (n >= 9)
+	if (n > 9)
 		count += ft_putnbr_unsigned(n / 10);
 	c = (n % 10 + '0');
 	count += write(1, &c, 1);

@@ -6,11 +6,11 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:30:54 by jowagner          #+#    #+#             */
-/*   Updated: 2025/01/19 21:30:34 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:33:34 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 static int	ft_putptr(unsigned long n)
 {

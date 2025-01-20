@@ -20,7 +20,7 @@ SRC				:=		ft_printf.c \
 ########################################################################################################################
 
 HEAD			:=		include/ft_printf.h
-INC_PATH		:=		include/.
+INC_PATH		:=		include
 SRC_PATH		:=		src/
 OBJ_DIR			:= 		obj/
 LIBFT_DIR		:=		libft/

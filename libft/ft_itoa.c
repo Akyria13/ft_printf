@@ -6,19 +6,12 @@
 /*   By: jowagner <jowagner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 20:50:07 by jowagner          #+#    #+#             */
-/*   Updated: 2025/01/13 20:11:05 by jowagner         ###   ########.fr       */
+/*   Updated: 2025/01/20 18:55:21 by jowagner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-/**
- * @brief Converts an integer to a string representation.
- *
- * @param n The integer to convert.
- * @return A pointer to the newly allocated string representing the integer,
- * or NULL if memory allocation fails.
- */
 static int	ft_numlen(int n)
 {
 	int	len;
@@ -34,6 +27,13 @@ static int	ft_numlen(int n)
 	return (len);
 }
 
+/**
+ * @brief Converts an integer to a string representation.
+ *
+ * @param n The integer to convert.
+ * @return A pointer to the newly allocated string representing the integer,
+ * or NULL if memory allocation fails.
+ */
 char	*ft_itoa(int n)
 {
 	char			*str;
