@@ -12,13 +12,18 @@ Once completed, `ft_printf` can be added to your personal library (libft) for us
 
 `ft_printf` supports the following format specifiers:
 
-- **`%c`**: Prints a single character.
-- **`%s`**: Prints a string.
-- **`%p`**: Prints a pointer in hexadecimal format.
-- **`%d` or `%i`**: Prints a signed decimal integer.
-- **`%u`**: Prints an unsigned decimal integer.
-- **`%x`**: Prints an unsigned hexadecimal integer (lowercase).
-- **`%X`**: Prints an unsigned hexadecimal integer (uppercase).
-- **`%%`**: Prints a literal `%`.
+- **`%c`** : Prints a single character.
+- **`%s`** : Prints a string.
+- **`%p`** : Prints a pointer in hexadecimal format.
+- **`%d` or `%i`** : Prints a signed decimal integer.
+- **`%u`** : Prints an unsigned decimal integer.
+- **`%x`** : Prints an unsigned hexadecimal integer (lowercase).
+- **`%X`** : Prints an unsigned hexadecimal integer (uppercase).
+- **`%%`** : Prints a literal `%`.
 
 ---
+
+## 📝 Resource
+
+- **`1`** : https://42-cursus.gitbook.io/guide/rank-01/ft_printf
+- **`2`** : https://github.com/Tripouille/printfTester
