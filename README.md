@@ -23,7 +23,7 @@ Once completed, `ft_printf` can be added to your personal library (libft) for us
 
 ---
 
-## 📝 Resource
+## 📝 Resources
 
 - **`1`** : https://42-cursus.gitbook.io/guide/rank-01/ft_printf
 - **`2`** : https://github.com/Tripouille/printfTester
