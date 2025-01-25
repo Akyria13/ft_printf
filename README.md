@@ -1,3 +1,9 @@
+---
+
+![CC-ft_printf](https://github.com/user-attachments/assets/2c8ba1cb-4623-43e7-81f1-2f58ed8886f9)
+
+---
+
 # ft_printf
 
 ## 📚 Description
